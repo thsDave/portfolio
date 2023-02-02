@@ -11,7 +11,7 @@
     function portfolio_init() {
         var portfolio_grid = $('.portfolio-grid'),
             portfolio_filter = $('.portfolio-filters');
-            
+
         if (portfolio_grid) {
 
             portfolio_grid.shuffle({
@@ -82,9 +82,13 @@
                         var messageAlert = 'alert-' + data.type;
                         var messageText = data.message;
 
-                        var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                        var alertBox = `
+                        <div class="alert alert-success" role="alert" style="margin-bottom: 32px !important;">
+                          ` + messageText + `
+                        </div>`;
+
                         if (messageAlert && messageText) {
-                            $('#contact_form').find('.messages').html(alertBox);
+                            $('.messages').html(alertBox);
                             $('#contact_form')[0].reset();
                         }
                     }
