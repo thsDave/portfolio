@@ -1,12 +1,12 @@
 <?php
 
 // configure
-$from = 'info@yourdomain.com'; // Replace it with Your Hosting Admin email. REQUIRED!
+$from = 'info@sudocripts.com'; // Replace it with Your Hosting Admin email. REQUIRED!
 $sendTo = 'isaacdrq@gmail.com'; // Replace it with Your email. REQUIRED!
-$subject = 'New message from contact form';
+$subject = 'Portfolio site - Nuevo mensaje';
 $fields = array('name' => 'Name', 'email' => 'Email', 'subject' => 'Subject', 'message' => 'Message'); // array variable name => Text to appear in the email. If you added or deleted a field in the contact form, edit this array.
-$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
-$errorMessage = 'There was an error while submitting the form. Please try again later';
+$okMessage = 'Tu mensaje ha sido enviado con éxito. ¡Gracias, me pondré en contacto contigo pronto!';
+$errorMessage = 'Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde';
 
 // let's do the sending
 
@@ -38,7 +38,7 @@ if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'
                 'Reply-To: ' . $from,
                 'Return-Path: ' . $from,
             );
-            
+
             mail($sendTo, $subject, $emailText, implode("\n", $headers));
 
             $responseArray = array('type' => 'success', 'message' => $okMessage);
