@@ -2,19 +2,34 @@ import type { ExperienceItem } from '../types'
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
+    id: 'consultoria-actual',
+    organization: 'Consultoría independiente',
+    role: 'Consultor de desarrollo de aplicaciones y soluciones en tecnología',
+    period: 'Actualidad',
+    current: true,
+    points: [
+      'Desarrollo de aplicaciones web a medida, análisis y diseño de soluciones.',
+      'Digitalización y automatización de procesos organizacionales.',
+      'Integración de plataformas y APIs.',
+      'Mantenimiento y evolución de sistemas existentes.',
+      'Consultoría en infraestructura, servicios de IT y Microsoft 365.',
+      'Asesoría en seguridad de la información y selección de soluciones tecnológicas.',
+    ],
+  },
+  {
     id: 'cristosal-coordinador',
     organization: 'Cristosal',
     role: 'Coordinador de IT',
-    period: 'Desde 2025',
-    current: true,
+    period: '2025',
     points: [
       'Coordinación y gestión de los servicios tecnológicos de la organización.',
-      'Documentación de sistemas, procesos y procedimientos de TI.',
-      'Administración de redes, firewalls, antivirus e infraestructura tecnológica.',
-      'Supervisión de la disponibilidad y el rendimiento de los sistemas y la conectividad.',
-      'Gestión de accesos, seguridad de la información y soporte a usuarios.',
-      'Coordinación de altas y bajas de personal en conjunto con Recursos Humanos.',
-      'Gestión de proveedores, activos tecnológicos y optimización de procesos de IT.',
+      'Gestión de infraestructura, conectividad y seguridad.',
+      'Administración de Microsoft 365.',
+      'Gestión de accesos, activos tecnológicos, licencias y proveedores.',
+      'Soporte y continuidad operativa.',
+      'Documentación de procesos y sistemas.',
+      'Optimización de servicios tecnológicos.',
+      'Coordinación de altas y bajas de personal desde IT, en conjunto con Recursos Humanos.',
     ],
   },
   {

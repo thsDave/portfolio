@@ -1,12 +1,12 @@
 {
   "name": "Isaac David Ramos Quintanilla — Portafolio profesional",
   "short_name": "Isaac Ramos",
-  "description": "Coordinador de IT y desarrollador de aplicaciones web en El Salvador.",
+  "description": "Consultor de desarrollo de aplicaciones y soluciones tecnológicas en El Salvador.",
   "start_url": "/portfolio/",
   "scope": "/portfolio/",
   "display": "browser",
   "background_color": "#ffffff",
-  "theme_color": "#0f172a",
+  "theme_color": "#010409",
   "icons": [
     { "src": "/portfolio/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/portfolio/icon-512.png", "sizes": "512x512", "type": "image/png" }

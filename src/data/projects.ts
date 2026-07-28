@@ -1,8 +1,6 @@
 import type { Project } from '../types'
 import abecafeImg from '../assets/images/abecafe.webp'
 import fleetsysImg from '../assets/images/fleetsys.webp'
-import puzzleImg from '../assets/images/puzzle.webp'
-import moodleImg from '../assets/images/moodle.webp'
 
 export const PROJECT_CATEGORIES = [
   'Todos',
@@ -33,25 +31,22 @@ export const PROJECTS: Project[] = [
     tag: 'Desarrollo para cliente',
   },
   {
-    id: 'itapp',
-    name: 'ITApp',
-    category: 'Herramientas internas',
-    need: 'Los equipos de IT de organizaciones pequeñas y medianas requieren centralizar la gestión de colaboradores, usuarios y tickets de soporte técnico.',
+    id: 'abecafe',
+    name: 'Abecafé',
+    category: 'Aplicaciones web',
+    need: 'La Asociación Salvadoreña de Beneficiadores y Exportadores de Café necesitaba un sitio web institucional propio.',
     solution:
-      'Sistema web interno con arquitectura MVC en PHP para administrar colaboradores, cuentas de usuario y solicitudes de soporte técnico.',
-    role: 'Diseño y desarrollo individual del sistema, desde el modelo de datos hasta la interfaz.',
-    tech: ['PHP', 'MySQL', 'AdminLTE', 'MVC'],
+      'Sitio web institucional público que presenta a la asociación y su labor gremial dentro del sector cafetalero.',
+    role: 'Desarrollo del sitio web institucional.',
+    tech: [],
     features: [
-      'Gestión de usuarios con roles y permisos.',
-      'Registro de colaboradores por departamento.',
-      'Seguimiento de tickets de soporte con niveles de prioridad.',
-      'Panel con métricas de estado en tiempo real.',
-      'Eliminación lógica de registros para preservar la integridad de la información.',
+      'Presentación institucional de la asociación y su labor gremial.',
+      'Contenido informativo dirigido a productores y exportadores de café.',
     ],
-    type: 'Sistema interno de gestión de TI',
-    tag: 'Proyecto propio',
-    link: 'https://github.com/thsDave/itapp',
-    linkLabel: 'Ver repositorio',
+    type: 'Sitio web institucional',
+    tag: 'Solución institucional',
+    image: abecafeImg,
+    imageAlt: 'Página principal del sitio institucional de Abecafé',
   },
   {
     id: 'monitoreo-migrante',
@@ -71,51 +66,94 @@ export const PROJECTS: Project[] = [
     tag: 'Solución institucional',
   },
   {
-    id: 'plataformas-educo',
-    name: 'Plataformas y sitios institucionales de Fundación Educo',
+    id: 'fleetsys',
+    name: 'Fleetsys',
     category: 'Plataformas institucionales',
-    need: 'La fundación requería sitios y sistemas propios para presencia institucional, aprendizaje virtual y control de recursos operativos.',
+    need: 'La organización requería una herramienta propia para apoyar la administración y el seguimiento de su flota vehicular.',
     solution:
-      'Conjunto de sitios y sistemas web desarrollados y mantenidos durante la etapa como programador web de la organización.',
-    role: 'Desarrollo, administración y mantenimiento de cada plataforma.',
-    tech: ['PHP', 'JavaScript', 'MySQL', 'Moodle', 'WordPress'],
+      'Sistema interno para el control y seguimiento de la flota vehicular de la organización.',
+    role: 'Desarrollo y mantenimiento del sistema.',
+    tech: ['PHP', 'MySQL'],
     features: [
-      'Sitio institucional informativo.',
-      'Sistema de control de flota vehicular.',
-      'Aplicación educativa interactiva para estudiantes.',
-      'Administración de la plataforma virtual de aprendizaje Moodle.',
+      'Registro y seguimiento de los vehículos de la flota.',
+      'Apoyo a la administración y control operativo de la flota vehicular.',
     ],
-    type: 'Sitios y sistemas institucionales',
+    type: 'Sistema de control de flota vehicular',
     tag: 'Solución institucional',
-    subProjects: [
-      {
-        name: 'Abecafé — sitio institucional',
-        description:
-          'Sitio web para la Asociación Salvadoreña de Beneficiadores y Exportadores de Café.',
-        image: abecafeImg,
-        imageAlt: 'Página principal del sitio institucional de Abecafé',
-      },
-      {
-        name: 'Fleetsys — control de flota vehicular',
-        description:
-          'Sistema interno para el control y seguimiento de la flota vehicular de la organización.',
-        image: fleetsysImg,
-        imageAlt: 'Pantalla del sistema Fleetsys de control de flota vehicular',
-      },
-      {
-        name: 'Puzzle Educo',
-        description:
-          'Aplicación educativa interactiva desarrollada para actividades con estudiantes.',
-        image: puzzleImg,
-        imageAlt: 'Interfaz del juego educativo Puzzle Educo',
-      },
-      {
-        name: 'Development Room — Moodle Educo',
-        description:
-          'Administración y mantenimiento de la plataforma virtual de aprendizaje Moodle.',
-        image: moodleImg,
-        imageAlt: 'Logotipo de la plataforma Moodle utilizada por Educo',
-      },
+    image: fleetsysImg,
+    imageAlt: 'Pantalla del sistema Fleetsys de control de flota vehicular',
+  },
+  {
+    id: 'control-proveedores',
+    name: 'Control de proveedores',
+    category: 'Plataformas institucionales',
+    need: 'La organización requería centralizar y dar seguimiento a la información y los procesos relacionados con sus proveedores.',
+    solution:
+      'Plataforma institucional para organizar y dar seguimiento a la información de proveedores.',
+    role: 'Desarrollo de la plataforma.',
+    tech: ['PHP', 'MySQL'],
+    features: [
+      'Registro y organización de información de proveedores.',
+      'Seguimiento de procesos relacionados con proveedores.',
     ],
+    type: 'Plataforma institucional de gestión de proveedores',
+    tag: 'Solución institucional',
+  },
+  {
+    id: 'gestion-casos',
+    name: 'Sistema de gestión de casos',
+    category: 'Plataformas institucionales',
+    need: 'Una organización requería una herramienta para gestionar el ciclo completo de atención y seguimiento de casos, desde su recepción hasta su cierre.',
+    solution:
+      'Plataforma institucional para el registro, evaluación, seguimiento y cierre de casos, con formularios dinámicos e instrumentos vinculados a cada expediente.',
+    role: 'Desarrollo de la plataforma.',
+    tech: ['PHP', 'MySQL'],
+    features: [
+      'Formularios públicos de entrada con preguntas dinámicas y ramificaciones.',
+      'Registro y evaluación de solicitudes.',
+      'Seguimiento de casos por etapas: evaluación, seguimiento y cierre.',
+      'Instrumentos y documentos vinculados a cada caso.',
+      'Gestión de usuarios, roles y permisos.',
+      'Historial de cambios y auditoría.',
+      'Generación de reportes y documentos PDF.',
+    ],
+    type: 'Plataforma institucional de gestión de casos',
+    tag: 'Solución institucional',
+  },
+  {
+    id: 'skeleton',
+    name: 'Skeleton',
+    category: 'Herramientas internas',
+    need: 'Cada nuevo sistema administrativo implicaba reconstruir desde cero la autenticación, el control de accesos, la auditoría y la estructura visual.',
+    solution:
+      'Base modular en PHP con arquitectura MVC que centraliza los componentes comunes de seguridad, configuración, usuarios y auditoría para acelerar el inicio de nuevos sistemas administrativos.',
+    role: 'Diseño y desarrollo individual de la base y su arquitectura.',
+    tech: [
+      'PHP',
+      'MySQL',
+      'DashboardKit',
+      'SweetAlert2',
+      'DataTables',
+      'Select2',
+      'Chart.js',
+      'Dompdf',
+      'PHPMailer',
+    ],
+    features: [
+      'Arquitectura MVC en PHP reutilizable como base para nuevos sistemas.',
+      'Autenticación local con recuperación de contraseña.',
+      'Autenticación multifactor y control de intentos fallidos.',
+      'Integración OAuth con Google, Microsoft 365 y GitHub.',
+      'Gestión de usuarios, roles y permisos.',
+      'Administración de sesiones y bloqueo por inactividad.',
+      'Registro de auditoría.',
+      'Configuración SMTP y de apariencia.',
+      'Modo claro y oscuro.',
+      'Reportes en PDF mediante Dompdf.',
+    ],
+    type: 'Base modular para sistemas administrativos',
+    tag: 'Proyecto propio',
+    link: 'https://github.com/thsDave/skeleton',
+    linkLabel: 'Ver repositorio',
   },
 ]

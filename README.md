@@ -1,9 +1,9 @@
 # Portafolio — Isaac David Ramos Quintanilla
 
-Portafolio profesional de **Isaac David Ramos Quintanilla**, Coordinador de IT y desarrollador de
-aplicaciones web en El Salvador. Aplicación de una sola página, construida como sitio estático,
-pensada para comunicar un perfil integral de tecnología: desarrollo web, infraestructura, seguridad
-de la información y coordinación de servicios de TI.
+Portafolio profesional de **Isaac David Ramos Quintanilla**, consultor de desarrollo de
+aplicaciones y soluciones tecnológicas en El Salvador. Aplicación de una sola página, construida
+como sitio estático, pensada para comunicar un perfil integral de tecnología: desarrollo de
+software, infraestructura, seguridad de la información y consultoría/gestión tecnológica.
 
 **Producción:** https://thsdave.github.io/portfolio/
 
@@ -35,6 +35,22 @@ El sitio presenta, en una navegación por secciones (sin rutas ni backend):
 
 No se utiliza backend, base de datos ni formularios de contacto simulados: el canal de contacto
 principal es WhatsApp, con correo electrónico como alternativa.
+
+## Sistema de color
+
+La identidad visual usa tokens semánticos definidos como variables CSS en `src/index.css`
+(`--color-background-primary`, `--color-text-secondary`, `--color-accent-primary`,
+`--color-technology-*`, etc.), generados vía `@theme` de Tailwind CSS 4. Los valores por defecto en
+`@theme` son el tema claro; el bloque `:root.dark` redefine las mismas variables con la paleta
+oscura, por lo que las utilidades (`bg-background-primary`, `border-border`, `text-text-secondary`…)
+cambian automáticamente con el toggle de tema, sin variantes `dark:` repetidas en cada componente.
+
+Los acentos (`accent-primary`, `accent-hover`, `success`, `success-strong`) y los acentos
+tecnológicos (`technology-go`, `technology-php`, `technology-purple`, `technology-html`,
+`technology-js`) se mantienen iguales en ambos temas y se usan como puntos de color deliberados
+(botones, enlaces activos, puntos de color junto a etiquetas de tecnología), no como color de fondo
+o texto general. `text-muted` (`#656C76`) se reserva para texto grande o decorativo en modo oscuro,
+ya que sobre los fondos casi negros no alcanza el contraste mínimo de 4.5:1 para texto normal.
 
 ## Requisitos
 

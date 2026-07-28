@@ -32,12 +32,12 @@ export function Navbar() {
   }, [isOpen])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-950/80">
+    <header className="bg-background-primary/80 border-border/80 sticky top-0 z-50 border-b backdrop-blur-sm">
       <nav
         className="section-container flex h-16 items-center justify-between"
         aria-label="Navegación principal"
       >
-        <a href="#inicio" className="font-heading text-lg font-bold text-slate-900 dark:text-white">
+        <a href="#inicio" className="font-heading text-text-primary text-lg font-bold">
           {SITE.shortName}
         </a>
 
@@ -50,8 +50,8 @@ export function Navbar() {
                   href={item.href}
                   className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-brand-600 dark:text-accent-400'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+                      ? 'text-accent-primary dark:text-accent-hover'
+                      : 'text-text-secondary hover:text-text-primary'
                   }`}
                   aria-current={isActive ? 'true' : undefined}
                 >
@@ -70,7 +70,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+              className="border-border text-text-secondary hover:bg-surface-hover flex h-10 w-10 items-center justify-center rounded-full border transition-colors"
             >
               <SocialIcon icon={social.icon} />
             </a>
@@ -78,7 +78,7 @@ export function Navbar() {
           <a
             href={SITE.cvUrl}
             download
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="border-border text-text-secondary hover:bg-surface-hover inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors"
           >
             <Download size={16} aria-hidden="true" />
             CV
@@ -95,7 +95,7 @@ export function Navbar() {
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-700 dark:border-slate-700 dark:text-slate-200"
+            className="border-border text-text-primary flex h-10 w-10 items-center justify-center rounded-full border"
           >
             {isOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
@@ -105,7 +105,7 @@ export function Navbar() {
       {isOpen && (
         <div
           id="mobile-menu"
-          className="h-[calc(100svh-4rem)] overflow-y-auto border-t border-slate-200 bg-white px-5 pt-2 pb-6 lg:hidden dark:border-slate-800 dark:bg-slate-950"
+          className="border-border bg-background-primary h-[calc(100svh-4rem)] overflow-y-auto border-t px-5 pt-2 pb-6 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
@@ -113,7 +113,7 @@ export function Navbar() {
                 <a
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-md px-3 py-3 text-base font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                  className="text-text-primary hover:bg-surface-hover block rounded-md px-3 py-3 text-base font-medium"
                 >
                   {item.label}
                 </a>
@@ -123,7 +123,7 @@ export function Navbar() {
           <a
             href={SITE.cvUrl}
             download
-            className="mt-3 inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-700 dark:border-slate-700 dark:text-slate-200"
+            className="border-border text-text-primary mt-3 inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-medium"
           >
             <Download size={16} aria-hidden="true" />
             Descargar CV
@@ -136,7 +136,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-300"
+                className="border-border text-text-secondary flex h-11 w-11 items-center justify-center rounded-full border"
               >
                 <SocialIcon icon={social.icon} />
               </a>

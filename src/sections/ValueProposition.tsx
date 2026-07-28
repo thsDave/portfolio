@@ -17,16 +17,14 @@ export function ValueProposition() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {VALUE_PROPOSITIONS.map((item, index) => (
             <Reveal key={item.title} delay={(index % 4) * 0.05}>
-              <div className="h-full rounded-2xl border border-slate-200 p-6 dark:border-slate-800">
+              <div className="border-border h-full rounded-2xl border p-6">
                 <CheckCircle2
                   size={24}
-                  className="text-brand-600 dark:text-accent-400"
+                  className="text-accent-primary dark:text-accent-hover"
                   aria-hidden="true"
                 />
                 <h3 className="mt-4 font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                  {item.description}
-                </p>
+                <p className="text-text-secondary mt-2 text-sm">{item.description}</p>
               </div>
             </Reveal>
           ))}

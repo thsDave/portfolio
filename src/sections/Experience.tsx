@@ -13,26 +13,26 @@ export function Experience() {
           description="Una progresión desde el soporte y el desarrollo web hacia la coordinación tecnológica."
         />
 
-        <ol className="mt-12 space-y-10 border-l border-slate-200 pl-6 sm:pl-8 dark:border-slate-800">
+        <ol className="border-border mt-12 space-y-10 border-l pl-6 sm:pl-8">
           {EXPERIENCE.map((item, index) => (
             <Reveal key={item.id} delay={Math.min(index * 0.05, 0.3)}>
               <li className="relative">
                 <span
-                  className="bg-brand-600 dark:bg-accent-400 absolute top-1.5 -left-[1.72rem] h-3 w-3 rounded-full border-2 border-white sm:-left-[2.22rem] dark:border-slate-950"
+                  className="bg-accent-primary dark:bg-accent-hover border-background-primary absolute top-1.5 -left-[1.72rem] h-3 w-3 rounded-full border-2 sm:-left-[2.22rem]"
                   aria-hidden="true"
                 />
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="text-lg font-bold">{item.role}</h3>
-                  {item.current && <Badge tone="brand">Actual</Badge>}
+                  {item.current && <Badge tone="accent">Actual</Badge>}
                 </div>
-                <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
+                <p className="text-text-secondary text-sm font-medium">
                   {item.organization} · {item.period}
                 </p>
-                <ul className="mt-3 space-y-1.5 text-slate-600 dark:text-slate-400">
+                <ul className="text-text-secondary mt-3 space-y-1.5">
                   {item.points.map((point) => (
                     <li key={point} className="flex gap-2">
                       <span
-                        className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-slate-400 dark:bg-slate-600"
+                        className="border-border mt-2 h-1 w-1 flex-shrink-0 rounded-full border"
                         aria-hidden="true"
                       />
                       <span>{point}</span>

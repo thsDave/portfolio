@@ -3,7 +3,7 @@ import type { NavItem, SocialLink } from '../types'
 export const SITE = {
   name: 'Isaac David Ramos Quintanilla',
   shortName: 'Isaac David Ramos',
-  role: 'Coordinador de IT y Desarrollador de Aplicaciones Web',
+  role: 'Consultor de Desarrollo de Aplicaciones y Soluciones Tecnológicas',
   location: 'El Salvador',
   email: 'isaacdrq@gmail.com',
   productionUrl: 'https://thsdave.github.io/portfolio/',

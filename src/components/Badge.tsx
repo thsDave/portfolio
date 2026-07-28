@@ -2,13 +2,13 @@ import type { ReactNode } from 'react'
 
 interface BadgeProps {
   children: ReactNode
-  tone?: 'neutral' | 'brand' | 'outline'
+  tone?: 'neutral' | 'accent' | 'outline'
 }
 
 const TONE_CLASSES: Record<NonNullable<BadgeProps['tone']>, string> = {
-  neutral: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
-  brand: 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-400',
-  outline: 'border border-slate-300 text-slate-600 dark:border-slate-700 dark:text-slate-400',
+  neutral: 'bg-surface-hover text-text-primary',
+  accent: 'bg-accent-primary/10 text-accent-primary dark:text-accent-hover',
+  outline: 'border border-border text-text-secondary',
 }
 
 export function Badge({ children, tone = 'neutral' }: BadgeProps) {

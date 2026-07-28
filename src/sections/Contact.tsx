@@ -6,10 +6,7 @@ import { GithubIcon, LinkedinIcon } from '../components/icons/BrandIcons'
 
 export function Contact() {
   return (
-    <section
-      id="contacto"
-      className="scroll-mt-16 bg-slate-900 py-20 text-white sm:py-24 dark:bg-slate-950"
-    >
+    <section id="contacto" className="scroll-mt-16 bg-[#0d1117] py-20 text-[#f0f6fc] sm:py-24">
       <div className="section-container">
         <Reveal>
           <SectionHeading
@@ -26,7 +23,7 @@ export function Contact() {
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-full bg-green-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-green-600/30 transition-colors hover:bg-green-500"
+              className="bg-success shadow-success/30 inline-flex items-center gap-3 rounded-full px-8 py-4 text-lg font-semibold text-white shadow-lg transition-colors hover:brightness-110"
             >
               <MessageCircle size={22} aria-hidden="true" />
               Escríbeme por WhatsApp
@@ -35,10 +32,10 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-slate-300">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-[#9198a1]">
             <a
               href={`mailto:${SITE.email}`}
-              className="inline-flex items-center gap-2 hover:text-white"
+              className="inline-flex items-center gap-2 hover:text-[#f0f6fc]"
             >
               <Mail size={18} aria-hidden="true" />
               {SITE.email}
@@ -47,7 +44,7 @@ export function Contact() {
               href={SITE.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:text-white"
+              className="inline-flex items-center gap-2 hover:text-[#f0f6fc]"
             >
               <LinkedinIcon size={18} />
               LinkedIn
@@ -56,7 +53,7 @@ export function Contact() {
               href={SITE.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:text-white"
+              className="inline-flex items-center gap-2 hover:text-[#f0f6fc]"
             >
               <GithubIcon size={18} />
               GitHub

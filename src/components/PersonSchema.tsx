@@ -23,6 +23,7 @@ export function PersonSchema() {
       'Seguridad informática',
       'Microsoft 365',
       'Coordinación de IT',
+      'Consultoría tecnológica',
     ],
   }
 

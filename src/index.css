@@ -4,18 +4,40 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Semantic color tokens derived from the supplied GitHub-style hex palette.
+  Values below are the light-theme defaults; :root.dark overrides the same
+  custom properties further down so every utility (bg-background-primary,
+  text-text-secondary, border-border, etc.) automatically follows the
+  active theme without duplicating dark: variants at every call site.
+*/
 @theme {
   --font-sans: 'Inter Variable', system-ui, 'Segoe UI', sans-serif;
   --font-heading: 'Plus Jakarta Sans Variable', 'Inter Variable', system-ui, sans-serif;
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-accent-300: #67e8f9;
-  --color-accent-400: #22d3ee;
-  --color-accent-500: #06b6d4;
+
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f0f6fc;
+  --color-background-elevated: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f6fc;
+  --color-border: #d0d7de;
+
+  --color-text-primary: #0d1117;
+  --color-text-secondary: #3d444d;
+  --color-text-muted: #656c76;
+
+  --color-accent-primary: #1f6feb;
+  --color-accent-hover: #4493f8;
+
+  --color-success: #238636;
+  --color-success-strong: #3fb950;
+
+  --color-technology-go: #00add8;
+  --color-technology-php: #4f5d95;
+  --color-technology-purple: #663399;
+  --color-technology-html: #e34c26;
+  --color-technology-js: #f1e05a;
+
   --animate-fade-up: fade-up 0.6s ease-out both;
 
   @keyframes fade-up {
@@ -30,6 +52,22 @@
   }
 }
 
+/* Dark theme: same tokens, GitHub-dark-derived values. */
+:root.dark {
+  --color-background-primary: #010409;
+  --color-background-secondary: #0d1117;
+  --color-background-elevated: #151b23;
+  --color-surface: #212830;
+  --color-surface-hover: #2f3742;
+  --color-border: #3d444d;
+
+  --color-text-primary: #f0f6fc;
+  --color-text-secondary: #9198a1;
+  /* text-muted (#656C76) is intentionally unchanged: on the very dark
+     backgrounds above it dips below 4.5:1, so it is reserved for large
+     or decorative text in dark mode — see README "Sistema de color". */
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -41,7 +79,7 @@
   }
 
   body {
-    @apply bg-white text-slate-700 antialiased dark:bg-slate-950 dark:text-slate-300;
+    @apply bg-background-primary text-text-primary antialiased;
     font-family: var(--font-sans);
   }
 
@@ -50,15 +88,15 @@
   h3,
   h4 {
     font-family: var(--font-heading);
-    @apply text-slate-900 dark:text-white;
+    @apply text-text-primary;
   }
 
   ::selection {
-    @apply bg-brand-500/30;
+    @apply bg-accent-primary/30;
   }
 
   :focus-visible {
-    @apply outline-accent-500 outline-2 outline-offset-2;
+    @apply outline-accent-hover outline-2 outline-offset-2;
   }
 }
 
@@ -83,6 +121,6 @@
   }
 
   .text-gradient {
-    @apply from-brand-600 to-accent-500 dark:from-brand-400 dark:to-accent-300 bg-gradient-to-r bg-clip-text text-transparent;
+    @apply from-accent-primary to-technology-go bg-gradient-to-r bg-clip-text text-transparent;
   }
 }
