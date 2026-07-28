@@ -84,6 +84,14 @@ Genera el sitio estático en `dist/`. Para previsualizar el resultado compilado:
 npm run preview
 ```
 
+Este proyecto se publica en dos destinos con rutas base distintas, resueltas mediante el modo de
+Vite (`vite.config.ts` lee `mode` y ajusta `base`):
+
+- `npm run build` / `npm run build:github` — `base: '/portfolio/'`, para GitHub Pages. Es el
+  comando que ejecuta el workflow de CI; no cambia.
+- `npm run build:hosting` — `base: '/'`, para publicar en la raíz de un dominio o subdominio
+  propio. Ver [Despliegue manual en hosting](#despliegue-manual-en-hosting) más abajo.
+
 ## Validaciones
 
 ```bash
@@ -104,7 +112,10 @@ src/
   layouts/      Estructura general de la página
   sections/     Secciones del sitio (Hero, Sobre mí, Proyectos, etc.)
   types/        Tipos de TypeScript compartidos
+  utils/        Utilidades compartidas (p. ej. color por tecnología en tarjetas de proyecto)
 public/         Archivos estáticos servidos tal cual (favicons, manifest, robots.txt, CV, etc.)
+scripts/        Scripts de mantenimiento (prepare-deploy.mjs genera deploy/ para hosting)
+deploy/         Generada por `npm run prepare:deploy`; ignorada por Git (ver sección de hosting)
 ```
 
 ## Personalización del contenido
@@ -140,6 +151,79 @@ La ruta base `/portfolio/` está configurada en `vite.config.ts` (`base: '/portf
 al publicarse en `https://thsdave.github.io/portfolio/`, incluyendo al recargar la página
 directamente en esa URL (el sitio es de una sola página, sin enrutador, por lo que no hay rutas
 adicionales que puedan producir errores 404).
+
+## Despliegue manual en hosting
+
+Además de GitHub Pages, el proyecto puede publicarse como archivos estáticos en cualquier hosting
+tradicional (dominio o subdominio propio), sirviéndose desde la raíz (`/`) en lugar de `/portfolio/`.
+El hosting **solo necesita servir archivos estáticos**: no requiere Node.js, PHP, ni ningún proceso
+en ejecución en el servidor.
+
+### 1. Instalar dependencias
+
+```bash
+npm ci
+```
+
+### 2. Ejecutar las validaciones
+
+```bash
+npm run lint
+npm run typecheck
+```
+
+### 3. Generar la carpeta `deploy/`
+
+```bash
+npm run prepare:deploy
+```
+
+Este comando (`scripts/prepare-deploy.mjs`):
+
+1. Compila el proyecto con `npm run build:hosting` (base `/`) y se detiene con un error claro si la
+   compilación falla.
+2. Borra únicamente el contenido previo de la carpeta local `deploy/` (nunca otras rutas).
+3. Copia ahí el contenido de `dist/` — `deploy/index.html`, `deploy/assets/`, etc. quedan
+   directamente dentro de `deploy/`, sin una subcarpeta `dist/` intermedia.
+
+`deploy/` es un artefacto de compilación: está en `.gitignore` y no se sube al repositorio; se
+regenera cada vez que se ejecuta `npm run prepare:deploy`.
+
+### 4. Qué subir al hosting
+
+Sube **el contenido de `deploy/`** (no la carpeta `deploy` como un nivel adicional, salvo que la
+estructura de tu hosting lo requiera) a la raíz pública del dominio o subdominio, típicamente:
+
+- `public_html/`
+- La raíz pública del dominio.
+- La raíz pública del subdominio (p. ej. `public_html/portafolio/` si el subdominio apunta ahí).
+
+No subas `node_modules/`, `src/`, ni ningún archivo de configuración de desarrollo — `deploy/` ya
+excluye todo eso; solo contiene HTML/CSS/JS compilado e imágenes, documentos y archivos públicos
+(favicons, `robots.txt`, `sitemap.xml`, `site.webmanifest`, el CV en PDF).
+
+Cada vez que actualices contenido o código, vuelve a ejecutar `npm run prepare:deploy` y sube de
+nuevo el contenido de `deploy/`.
+
+### 5. Rutas y navegación
+
+El sitio es una sola página con navegación por anclas (`#inicio`, `#proyectos`, etc.), sin React
+Router ni rutas reales — no se necesita `.htaccess` para reescribir rutas a `index.html`. Recargar
+la página, o abrir directamente una URL con ancla (p. ej. `https://tu-dominio/#proyectos`), funciona
+correctamente: la app hace scroll a la sección correspondiente al montar (ver
+`src/hooks/useScrollToHash.ts`).
+
+### 6. Metadatos pendientes de actualizar
+
+La URL canónica, Open Graph, Twitter Card, `robots.txt` y `sitemap.xml` todavía apuntan a
+`https://thsdave.github.io/portfolio/` — se conservan así intencionalmente porque aún no se ha
+definido el dominio final del hosting. **Cuando se defina un dominio propio**, hay que actualizar:
+
+- `index.html` — `canonical`, `og:url`, `og:image`, `twitter:image`.
+- `public/robots.txt` — línea `Sitemap:`.
+- `public/sitemap.xml` — `<loc>`.
+- `src/data/site.ts` — `productionUrl`.
+- `README.md` — la línea "Producción" al inicio de este archivo.
 
 ## Consideraciones de privacidad
 

@@ -1,6 +1,7 @@
 import { HelmetProvider } from 'react-helmet-async'
 import { MainLayout } from './layouts/MainLayout'
 import { PersonSchema } from './components/PersonSchema'
+import { useScrollToHash } from './hooks/useScrollToHash'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Skills } from './sections/Skills'
@@ -11,6 +12,8 @@ import { ValueProposition } from './sections/ValueProposition'
 import { Contact } from './sections/Contact'
 
 function App() {
+  useScrollToHash()
+
   return (
     <HelmetProvider>
       <PersonSchema />
